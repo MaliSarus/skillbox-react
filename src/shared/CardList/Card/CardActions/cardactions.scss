@@ -1,0 +1,23 @@
+.actions {
+  display: flex;
+  flex-flow: row nowrap;
+  @media all and (min-width: 1024px) {
+    display: none;
+  }
+
+  > * {
+    + * {
+      margin: 0 0 0 13px;
+    }
+  }
+}
+
+.shareButton {
+  width: 20px;
+  height: 20px;
+}
+
+.saveButton {
+  width: 20px;
+  height: 20px;
+}

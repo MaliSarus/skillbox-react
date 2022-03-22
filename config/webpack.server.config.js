@@ -1,5 +1,6 @@
 const path = require('path')
 const NODE_ENV = process.env.NODE_ENV;
+const GLOBAL_CSS_REGEXP = /\.global\.scss$/
 const express = require('express')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
@@ -37,9 +38,13 @@ const config = {
             }
           },
           'sass-loader'
-        ]
+        ],
+        exclude: GLOBAL_CSS_REGEXP,
+      },
+      {
+        test: GLOBAL_CSS_REGEXP,
+        use: ['css-loader']
       }
-
     ]
   },
   optimization: {
