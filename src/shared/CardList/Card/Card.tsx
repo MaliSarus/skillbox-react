@@ -5,17 +5,19 @@ import {CardMenu} from "./CardMenu";
 import {CardControls} from "./CardControls";
 import {CardActions} from "./CardActions";
 
+const textContent = {
+  user: {
+    avatar: 'https://user-life.com/uploads/posts/2020-03/1584366922_1.png',
+    name: 'Дмитрий Гришин',
+    url: '#new-user'
+  },
+  date: '4 часа',
+  title: 'Следует отметить, что новая модель организационоой деятельности стоит...',
+  postLink: '#post-link'
+}
+
 export function Card() {
-  const textContent = {
-    user: {
-      avatar: 'https://user-life.com/uploads/posts/2020-03/1584366922_1.png',
-      name: 'Дмитрий Гришин',
-      url: '#new-user'
-    },
-    date: '4 часа',
-    title: 'Следует отметить, что новая модель организационоой деятельности стоит...',
-    postLink: '#post-link'
-  }
+
   return (
     <div className={styles.card}>
       <CardTextContent content={textContent}/>
