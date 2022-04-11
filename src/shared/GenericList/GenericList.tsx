@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './genericlist.scss';
-import {on} from "nodemon";
+import {joinWithSpace} from "../../utils/helpers";
+
+const withListItemStyle = joinWithSpace('list__item')
 
 interface IItem {
   text: string;
-  className?: string;
+  className?: string ;
   id: string;
   onClick?: (id: string) => void;
   Tag?: 'a' | 'button' | 'div';
@@ -22,11 +24,10 @@ export function GenericList({list}: IGenericListProps) {
     <ul className="list">
       {list.map(({Tag='div', text, onClick=noop ,id, className, href})=>(
           <li
-            className="list__item"
+            className={withListItemStyle(className)}
             key={id}
           >
             <Tag
-              className={className}
               onClick={() => onClick(id)}
 
               {...((Tag === 'a') ? {href} : {})}

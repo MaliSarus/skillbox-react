@@ -2,44 +2,48 @@ import React from 'react';
 import styles from './cardmenu.scss';
 import {Dropdown} from "../../../Dropdown";
 import {GenericList} from "../../../GenericList";
-import {generateRandomString} from "../../../../utils/helpers";
+import {generateRandomString, joinWithSpace} from "../../../../utils/helpers";
+
+const withDropdownButtonStyle = joinWithSpace(styles.dropdownButton)
+// const dropdownButtonStyles = <S extends string>(style: S) => [style, ].join(' ')
+
 
 const DROPDOWN_LIST = [
   {
     text: 'Комментарии',
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.commentsDropdown
+    className: withDropdownButtonStyle(styles.commentsDropdown)
   },
   {
     text: `Поделиться`,
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.shareDropdown
+    className: withDropdownButtonStyle(styles.shareDropdown)
   },
   {
     text: 'Скрыть',
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.hideDropdown
+    className: withDropdownButtonStyle(styles.hideDropdown)
   },
   {
     text: 'Сохранить',
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.saveDropdown
+    className: withDropdownButtonStyle(styles.saveDropdown)
   },
   {
     text: 'Пожаловаться',
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.alertDropdown
+    className: withDropdownButtonStyle(styles.alertDropdown)
   },
   {
     text: 'Закрыть',
     id: generateRandomString(),
     Tag: "button" as const,
-    className: styles.closeDropdown,
+    className: withDropdownButtonStyle(styles.closeDropdown),
   }
 ]
 

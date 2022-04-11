@@ -68,3 +68,10 @@ export function pick<K extends string>(prop: K) {
 export function isEqual<T>(left: T){
   return <E extends T>(right: E) => left === right
 }
+
+export function joinWithSpace<T>(item: T){
+  return <O extends Array<T> | T | undefined>(items: O) => {
+    const result = Array.isArray(items) ? [...items,item] : [items, item]
+    return result.join(' ')
+  }
+}
