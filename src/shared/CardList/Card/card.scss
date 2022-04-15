@@ -3,9 +3,9 @@
   background-color: var(--white);
   border-radius: 7px;
   padding: 20px 20px 10px;
-  display: flex;
-  flex-flow: row wrap;
   @media all and (min-width: 1024px) {
+    display: flex;
+
     background-color: transparent;
     flex-flow: row nowrap;
     max-height: 107px;
@@ -51,7 +51,6 @@
 }
 
 .preview {
-  max-height: 178px;
   margin: 0 -20px;
   @media all and (min-width: 1024px) {
     flex-basis: 190px;
@@ -63,6 +62,7 @@
   .previewImg {
     width: 100%;
     height: 100%;
+    max-height: 178px;
     object-fit: cover;
   }
 }
