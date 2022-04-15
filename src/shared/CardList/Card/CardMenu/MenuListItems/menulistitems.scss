@@ -1,0 +1,39 @@
+.menuItemsList{
+
+  .menuItem{
+    position: relative;
+
+    &:not(:last-child) {
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        height: 1px;
+        background: var(--grayD9);
+        content: '';
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    button, a{
+      text-align: left;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px 10px 20px;
+      color: var(--gray99);
+
+      &:hover {
+        background-color: var(--grayD9);
+      }
+      svg, .menuItemIcon{
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
+}
