@@ -6,6 +6,7 @@ import './shared/main.global.scss'
 import {Content} from "./shared/Content";
 import {CardList} from "./shared/CardList";
 
+
 function AppConponent() {
   return (
     <Layout>

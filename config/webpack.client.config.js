@@ -1,9 +1,17 @@
 const path = require('path')
+const {HotModuleReplacementPlugin, DefinePlugin} = require('webpack')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
 const NODE_ENV = process.env.NODE_ENV;
 const IS_DEV = NODE_ENV === 'development'
 const GLOBAL_CSS_REGEXP = /\.global\.scss$/
-const {HotModuleReplacementPlugin} = require('webpack')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const DEV_PLUGINS = [
+  new CleanWebpackPlugin(),
+  new HotModuleReplacementPlugin()
+]
+const COMMON_PLUGINS = [
+  new DefinePlugin({'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`})
+]
 
 module.exports = {
   mode: NODE_ENV ? NODE_ENV : 'development',
@@ -60,9 +68,10 @@ module.exports = {
     ]
   },
   devtool: IS_DEV ? 'eval' : false,
-  plugins: IS_DEV ? [
-      new CleanWebpackPlugin(),
-      new HotModuleReplacementPlugin()
+  plugins: IS_DEV ?
+    [
+      ...DEV_PLUGINS,
+      ...COMMON_PLUGINS
     ]
-    : []
+    : COMMON_PLUGINS
 }
