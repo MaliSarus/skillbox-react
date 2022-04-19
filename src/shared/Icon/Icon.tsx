@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import styles from './icon.scss';
 import {EIcons} from "../../types/types";
-// import {AlertIcon, CommentsIcon, HideIcon, MenuIcon, SaveIcon, ShareIcon }  from "../Icons";
 import * as components from "../Icons";
 import classNames from 'classnames'
 
-console.log(components)
 
 interface IIconProps {
   name: EIcons,

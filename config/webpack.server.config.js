@@ -1,9 +1,22 @@
 const path = require('path')
-const NODE_ENV = process.env.NODE_ENV;
-const GLOBAL_CSS_REGEXP = /\.global\.scss$/
 const express = require('express')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const {HotModuleReplacementPlugin, DefinePlugin} = require("webpack");
+
+
+const NODE_ENV = process.env.NODE_ENV;
+const IS_DEV = NODE_ENV === 'development'
+const GLOBAL_CSS_REGEXP = /\.global\.scss$/
+const DEV_PLUGINS = [
+  new CleanWebpackPlugin(),
+  new HotModuleReplacementPlugin()
+]
+const COMMON_PLUGINS = [
+  new DefinePlugin({'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`})
+]
+
 const config = {
   target: "node",
   mode: NODE_ENV ? NODE_ENV : 'development',
@@ -57,7 +70,9 @@ const config = {
   },
   optimization: {
     minimize: false
-  }
+  },
+  devtool: IS_DEV ? 'eval' : false,
+  plugins: COMMON_PLUGINS
 }
 
 module.exports = config
