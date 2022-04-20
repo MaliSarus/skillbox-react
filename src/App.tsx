@@ -1,16 +1,18 @@
 import {hot} from "react-hot-loader/root";
-import * as React from 'react'
+import React from 'react'
 import {Layout} from './shared/Layout/Layout'
 import {Header} from './shared/Header/Header'
 import './shared/main.global.scss'
 import {Content} from "./shared/Content";
 import {CardList} from "./shared/CardList";
+import {useToken} from "./hooks/useToken";
 
 
 function AppConponent() {
+  const [token] = useToken()
   return (
     <Layout>
-      <Header/>
+      <Header token={token}/>
       <Content>
         <CardList/>
       </Content>
