@@ -30,6 +30,7 @@ app.get('/auth', (req,res) => {
       }
     )
     .then(({data}) => {
+      console.log(data)
       res.send(
         indexTemplate(ReactDOM.renderToString(App()),data['access_token'])
       )
